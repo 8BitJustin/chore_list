@@ -5,7 +5,11 @@ body, html {
 
 .content {
     margin: 0 auto;
-    width: 400px;
+    width: 600px;
+}
+
+.content h1 {
+    text-align: center;
 }
 
 table, td, th {
