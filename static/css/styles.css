@@ -37,3 +37,32 @@ td {
 #content {
     width: 70%;
 }
+
+form {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.input_box {
+    border: 1px solid #aaa;
+
+}
+
+#content {
+    width: 60%;
+    height: 24px;
+    text-align: center;
+}
+
+#due_date {
+    width: 20%;
+    height: 24px;
+    text-align: center;
+}
+
+#submit_btn {
+    width: 15%;
+    height: 28px;
+    background-color: white;
+}
