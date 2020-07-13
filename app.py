@@ -34,5 +34,17 @@ def index():
         return render_template('index.html', chores=chores)
 
 
+@app.route('/delete/<int:id>')
+def delete(id):
+    task_delete = Chore.query.get_or_404(id)
+
+    try:
+        db.session.delete(task_delete)
+        db.session.commit()
+        return redirect('/')
+    except:
+        return 'There was a problem with deleting the task'
+
+
 if __name__ == "__main__":
     app.run(debug=True)

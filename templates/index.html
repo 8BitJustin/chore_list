@@ -22,7 +22,7 @@
             <td>{{ chore.date_created.date() }}</td>
             <td>
                 <a href="">Update</a>
-                <a href="">Delete</a>
+                <a href="/delete/{{ chore.id }}">Delete</a>
             </td>
         </tr>
         {% endfor %}
