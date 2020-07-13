@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
@@ -19,7 +19,19 @@ class Chore(db.Model):
 
 @app.route('/', methods=['POST', 'GET'])
 def index():
-    return render_template('index.html')
+    if request.method == 'POST':
+        chore_content = request.form['content']
+        new_chore = Chore(content=chore_content)
+
+        try:
+            db.session.add(new_chore)
+            db.session.commit()
+            return redirect('/')
+        except:
+            return 'There was an issue adding your chore'
+    else:
+
+        return render_template('index.html')
 
 
 if __name__ == "__main__":
