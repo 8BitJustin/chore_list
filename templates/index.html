@@ -15,15 +15,17 @@
             <th>Created</th>
             <th>Actions</th>
         </tr>
+        {% for chore in chores %}
         <tr>
+            <td>{{ chore.content }}</td>
             <td></td>
-            <td></td>
-            <td></td>
+            <td>{{ chore.date_created.date() }}</td>
             <td>
                 <a href="">Update</a>
                 <a href="">Delete</a>
             </td>
         </tr>
+        {% endfor %}
     </table>
 
     <form action="/" method="POST">
