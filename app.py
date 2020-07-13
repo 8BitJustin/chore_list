@@ -9,7 +9,7 @@ db = SQLAlchemy(app)
 
 class Chore(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    date_due = db.Column(db.String(), default=datetime.utcnow(), nullable=True)
+    date_due = db.Column(db.String(), default='Today')
     content = db.Column(db.String(30), nullable=False)
     date_created = db.Column(db.DateTime,
                              default=datetime.utcnow())
