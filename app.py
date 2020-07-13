@@ -30,7 +30,7 @@ def index():
         except:
             return 'There was an issue adding your chore'
     else:
-
+        # 28:28
         return render_template('index.html')
 
 
