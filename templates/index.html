@@ -20,7 +20,7 @@
         {% for chore in chores %}
         <tr>
             <td>{{ chore.content }}</td>
-            <td></td>
+            <td>{{ chore.date_due }}</td>
             <td>{{ chore.date_created.date() }}</td>
             <td>
                 <a href="/update/{{ chore.id }}">Update</a>

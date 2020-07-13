@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect
 from flask_sqlalchemy import SQLAlchemy
-from datetime import datetime
+from datetime import datetime, time
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
@@ -9,6 +9,7 @@ db = SQLAlchemy(app)
 
 class Chore(db.Model):
     id = db.Column(db.Integer, primary_key=True)
+    date_due = db.Column(db.String(), default=datetime.utcnow(), nullable=True)
     content = db.Column(db.String(30), nullable=False)
     date_created = db.Column(db.DateTime,
                              default=datetime.utcnow())
@@ -21,7 +22,9 @@ class Chore(db.Model):
 def index():
     if request.method == 'POST':
         chore_content = request.form['content']
-        new_chore = Chore(content=chore_content)
+        chore_due = request.form['due_date']
+        print(type(chore_due))
+        new_chore = Chore(date_due=chore_due, content=chore_content)
 
         try:
             db.session.add(new_chore)
@@ -51,6 +54,7 @@ def update(id):
     chore = Chore.query.get_or_404(id)
     if request.method == 'POST':
         chore.content = request.form['content']
+        chore.date_due = request.form['due_date']
 
         try:
             db.session.commit()
