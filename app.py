@@ -30,8 +30,8 @@ def index():
         except:
             return 'There was an issue adding your chore'
     else:
-        # 28:28
-        return render_template('index.html')
+        chores = Chore.query.order_by(Chore.date_created).all()
+        return render_template('index.html', chores=chores)
 
 
 if __name__ == "__main__":
