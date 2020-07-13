@@ -46,5 +46,14 @@ def delete(id):
         return 'There was a problem with deleting the task'
 
 
+@app.route('/update/<int:id>', methods=['GET', 'POST'])
+def update(id):
+    chore = Chore.query.get_or_404(id)
+    if request.method == 'POST':
+        pass
+    else:
+        return render_template('update.html', chore=chore)
+
+
 if __name__ == "__main__":
     app.run(debug=True)
