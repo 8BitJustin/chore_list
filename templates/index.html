@@ -7,7 +7,9 @@
 {% block body %}
 <div class="content">
     <h1>Chore List</h1>
-
+    {% if chores|length < 1 %}
+    <h3 style="text-align: center">There are no chores, create below:</h3>
+    {% else %}
     <table>
         <tr>
             <th>Chore</th>
@@ -27,7 +29,7 @@
         </tr>
         {% endfor %}
     </table>
-
+    {% endif %}
     <form action="/" method="POST">
         <label for="content">Chore:</label>
         <input type="text" name="content" class="input_box" id="content">

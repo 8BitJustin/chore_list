@@ -50,7 +50,13 @@ def delete(id):
 def update(id):
     chore = Chore.query.get_or_404(id)
     if request.method == 'POST':
-        pass
+        chore.content = request.form['content']
+
+        try:
+            db.session.commit()
+            return redirect('/')
+        except:
+            return 'There was a problem updating your chore'
     else:
         return render_template('update.html', chore=chore)
 

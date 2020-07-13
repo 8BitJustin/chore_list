@@ -10,11 +10,12 @@
 
     <form action="/update/{{chore.id}}" method="POST">
         <label for="content">Chore:</label>
-        <input type="text" name="content" class="input_box" id="content">
+        <input type="text" name="content" class="input_box" id="content"
+               value="{{chore.content}}">
         <label for="due_date">Due Date:</label>
         <input type="date" placeholder="Due Date" name="due_date" class="input_box"
                id="due_date">
-        <input type="submit" value="Add" class="input_box" id="submit_btn">
+        <input type="submit" value="Update" class="input_box" id="submit_btn">
     </form>
 </div>
 {% endblock %}
