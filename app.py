@@ -24,7 +24,7 @@ def index():
         chore_content = request.form['content']
         chore_due = request.form['due_date']
         if chore_due == '':
-            chore_due = 'None';
+            chore_due = 'Any';
         new_chore = Chore(date_due=chore_due, content=chore_content)
         try:
             db.session.add(new_chore)
