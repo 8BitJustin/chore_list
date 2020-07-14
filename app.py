@@ -9,7 +9,7 @@ db = SQLAlchemy(app)
 
 class Chore(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    date_due = db.Column(db.String(), default='Today')
+    date_due = db.Column(db.String(), server_default="TESTING")
     content = db.Column(db.String(30), nullable=False)
     date_created = db.Column(db.DateTime,
                              default=datetime.utcnow())
@@ -23,9 +23,9 @@ def index():
     if request.method == 'POST':
         chore_content = request.form['content']
         chore_due = request.form['due_date']
-        print(type(chore_due))
+        if chore_due == '':
+            chore_due = 'None';
         new_chore = Chore(date_due=chore_due, content=chore_content)
-
         try:
             db.session.add(new_chore)
             db.session.commit()
