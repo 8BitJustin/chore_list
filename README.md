@@ -4,6 +4,8 @@ A table that keeps track of chores, their due dates, and dates created
 . Heavily inspired by the FreeCodeCamp Youtube video, [Learn flask for
  Python](https://www.youtube.com/watch?v=Z1RJmh_OqeA&feature=emb_title).
 
+'Model' will be used for GUI application.
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
